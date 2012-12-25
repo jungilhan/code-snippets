@@ -1,17 +1,17 @@
-define(['views/addview', 'models/user'], function(AddView, User) {
+define(['views/addview', 'models/user', 'jquery'], function(AddView, User, $) {
   function start() {
     AddView.render();
     bindEvents();
   }
 
   function bindEvents() {
-    document.getElementById('add').addEventListener('click', function() {
+    $('#add').click(function() {
       var users = JSON.parse(localStorage.users);
-      var userName = document.getElementById('user-name').value;
+      var userName = $('#user-name').val();
       users.push(new User(userName));
       localStorage.users = JSON.stringify(users);
       window.location.hash = '#list';
-    }, false);
+    });
   }
 
   return {
