@@ -10,9 +10,7 @@ define(['views/addview', 'models/user'], function(AddView, User) {
       var userName = document.getElementById('user-name').value;
       users.push(new User(userName));
       localStorage.users = JSON.stringify(users);
-      require(['controllers/listcontroller'], function(ListController) {
-        ListController.start();
-      });
+      window.location.hash = '#list';
     }, false);
   }
 

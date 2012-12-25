@@ -1,15 +1,16 @@
-define(function() {
+define(['jquery', 'libs/jquery.tmpl', 'libs/jquery.tmplPlus'], function($) {
   function render(parameters) {
-    var appDiv = document.getElementById('app');
+    var $appDiv = $('#app');
     var users = parameters.users;
+    var data = [];
 
-    var html = '<ul>';
     for (var i = 0, len = users.length; i < len; i++) {
-      html += '<li>' + users[i].name + '</li>';
+      data.push({name: users[i].name});
     }
-    html += '</ul>';
 
-    appDiv.innerHTML = html;
+    var $html = $('<ul></ul>');
+    $html.append('<li>${name}</li>', data);
+    $appDiv.html($html);
   }
 
   return {

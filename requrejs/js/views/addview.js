@@ -1,7 +1,7 @@
-define(function() {
+define(['jquery'], function($) {
   function render(parameters) {
-    var appDiv = document.getElementById('app');
-    appDiv.innerHTML = '<input id="user-name" /><button id="add">Add this user</button>';
+    var $appDiv = $('#app');
+    $appDiv.html($('<input id="user-name" /><button id="add">Add this user</button>'));
   }
 
   return {
